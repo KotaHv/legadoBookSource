@@ -59,7 +59,7 @@
           "lastChapter": "[property=\"og:novel:latest_chapter_name\"]@content",
           "name": "[property=\"og:novel:book_name\"]@content",
           "tocUrl": "[property=\"og:novel:read_url\"]@content",
-          "wordCount": "##<p class=\"book-meta\">(.+?字)<"
+          "wordCount": "##<p class=\"book-meta\">(.+?字)<##$1###"
         },
         "ruleContent": {
           "content": "#acontent@html",
