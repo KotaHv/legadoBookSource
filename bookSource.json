@@ -1,89 +1,91 @@
 [
-    {
-      "bookSourceComment": "",
-      "bookSourceGroup": "网文",
-      "bookSourceName": "笔趣阁",
-      "bookSourceType": "0",
-      "bookSourceUrl": "https://infosxs.pysmei.com/",
-      "bookUrlPattern": ".+/BookFiles/Html/\\d+/\\d+/index\\.html",
-      "enabled": true,
-      "enabledExplore": true,
-      "exploreUrl": "热门连载::https://scxs.pysmei.com/top/man/top/hot/week/{{page}}.html\n抖音热书::https://scxs.pysmei.com/top/man/top/collect/week/{{page}}.html\n高分神作::https://scxs.pysmei.com/top/man/top/vote/week/{{page}}.html\n微信热书::https://scxs.pysmei.com/top/man/top/commend/week/{{page}}.html\n豆瓣高分::https://scxs.pysmei.com/top/man/top/new/week/{{page}}.html\n完本精选::https://scxs.pysmei.com/top/man/top/over/week/{{page}}.html",
-      "header": "{\"User-Agent\": \"okhttp-okgo/jeasonlzy\"}",
-      "lastUpdateTime": 1633669475368,
-      "ruleBookInfo": {
-        "name": "$.data.name"
-      },
-      "ruleContent": {
-        "content": "$.data.content\n<js>\na=String(chapter.title).replace(/\\s/g,\"\");\nresult.substring(0,90).includes(a)?result=result.split(a,2)[1]:result;\nresult.toLowerCase()\n</js>",
-        "replaceRegex": "##^[^\\n]{0,19}[\\u4e00-\\u9fa5]\\n|^正在更新中，请稍等.+|^[^\\n]*求月票[^\\n]*\\n|^([^\\n]+\\n){0,5}\\h+第\\w{1,7}章[【 ].+\\n|(?<=\\n)\\h+\\W\\n|(?<=\\n)\\h*(打击盗版，支持正版，).*$|(?<=\\n)\\h*[【\\(（][\\u4e00-\\u9fa5]+[）\\)】]$|(?<=\\w：)\\s+(?=“\\w)|(?<=\\w，[”」]|[，、‘《（【［「『])\\s+|\\s+(?=[\\n，、’：；》）】］」』])"
-      },
-      "ruleExplore": {},
-      "ruleSearch": {
-        "bookList": "$.data[:10]||$.data.BookList[*]",
-        "name": "$.Name",
-        "author": "$.Author",
-        "kind": "$.BookStatus&&$.CName&&$.Score##(\\d+\\.\\d)$##$1分",
-        "wordCount": "$.UpdateTime##\\h[\\d:]{8}",
-        "lastChapter": "$.UpdateTime&&$.LastChapter##\\h[\\d:]{8}\\n##▪",
-        "intro": "$.Desc",
-        "coverUrl": "$.Img\n<js>\"https://imgapixs.pysmei.com/BookFiles/BookImages/\"+String(result.match(/[^\\/]+\\.\\w+$/)[0])</js>",
-        "bookUrl": "$.Id@js:\nvar n=result.match(/(^\\d+)\\d{3,}/);\nn=(n)?n[1]:'0';\nresult=(Number(n)+1)+'/'+result;\nbook.origin+'BookFiles/Html/'+result+'/index.html';"
-      },
-      "ruleToc": {
-        "chapterList": "$.data.list[*].list[?(@.hasContent==1)]",
-        "chapterName": "$.name",
-        "chapterUrl": "{{$.id}}.html"
-      },
-      "searchUrl": "https://souxs.leeyegy.com/search.aspx?key={{key}}&page=1&siteid=app2",
-      "weight": 0
+  {
+    "bookSourceComment": "",
+    "bookSourceGroup": "网文",
+    "bookSourceName": "笔趣阁",
+    "bookSourceType": "0",
+    "bookSourceUrl": "https://infosxs.pysmei.com/",
+    "bookUrlPattern": ".+/BookFiles/Html/\\d+/\\d+/index\\.html",
+    "enabled": true,
+    "enabledExplore": true,
+    "exploreUrl": "热门连载::https://scxs.pysmei.com/top/man/top/hot/week/{{page}}.html\n抖音热书::https://scxs.pysmei.com/top/man/top/collect/week/{{page}}.html\n高分神作::https://scxs.pysmei.com/top/man/top/vote/week/{{page}}.html\n微信热书::https://scxs.pysmei.com/top/man/top/commend/week/{{page}}.html\n豆瓣高分::https://scxs.pysmei.com/top/man/top/new/week/{{page}}.html\n完本精选::https://scxs.pysmei.com/top/man/top/over/week/{{page}}.html",
+    "header": "{\"User-Agent\": \"okhttp-okgo/jeasonlzy\"}",
+    "lastUpdateTime": 1633669475368,
+    "ruleBookInfo": {
+      "name": "$.data.name"
     },
-    {
-        "bookSourceComment": "",
-        "bookSourceGroup": "轻小说",
-        "bookSourceName": "哔哩轻小说",
-        "bookSourceType": 0,
-        "bookSourceUrl": "https://w.linovelib.com",
-        "bookUrlPattern": ".+\/novel\/\\d+.html",
-        "enabled": true,
-        "enabledExplore": true,
-        "exploreUrl": "总榜::/top/allvisit/{{page}}.html\n月榜::/top/monthvisit/{{page}}.html\n总推::/top/allvote/{{page}}.html\n月推::/top/monthvote/{{page}}.html\n最近::/top/lastupdate/{{page}}.html\n最新::/top/postdate/{{page}}.html\n上架::/top/signtime/{{page}}.html\n收藏::/top/goodnum/{{page}}.html\n字数::/top/words/{{page}}.html\n新书::/top/newhot/{{page}}.html\n电击::/wenku/allvisit_0_1_0_0_0_0_5_{{page}}_0.html\n富士::/wenku/allvisit_0_2_0_0_0_0_5_{{page}}_0.html\n角川::/wenku/allvisit_0_3_0_0_0_0_5_{{page}}_0.html\nＭＦ::/wenku/allvisit_0_4_0_0_0_0_5_{{page}}_0.html\nＦＡ::/wenku/allvisit_0_5_0_0_0_0_5_{{page}}_0.html\nＧＡ::/wenku/allvisit_0_6_0_0_0_0_5_{{page}}_0.html\nＨＪ::/wenku/allvisit_0_7_0_0_0_0_5_{{page}}_0.html\n一迅::/wenku/allvisit_0_8_0_0_0_0_5_{{page}}_0.html\n集英::/wenku/allvisit_0_9_0_0_0_0_5_{{page}}_0.html\n小学::/wenku/allvisit_0_10_0_0_0_0_5_{{page}}_0.html\n讲谈::/wenku/allvisit_0_11_0_0_0_0_5_{{page}}_0.html\n少女::/wenku/allvisit_0_12_0_0_0_0_5_{{page}}_0.html\n其他::/wenku/allvisit_0_13_0_0_0_0_5_{{page}}_0.html\n华文::/wenku/allvisit_0_14_0_0_0_0_5_{{page}}_0.html\n轻改::/wenku/allvisit_0_15_0_0_0_0_5_{{page}}_0.html",
-        "header": "{\n    'User-Agent': 'Mozilla/5.0 (Linux; Android 9; HWI-AL00 Build/HUAWEIHWI-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.152 Mobile Safari/537.36'\n}",
-        "lastUpdateTime": 1633670053567,
-        "loginUrl": "https://w.linovelib.com/login.php",
-        "ruleBookInfo": {
-          "author": "[property=\"og:novel:author\"]@content",
-          "coverUrl": "[property=\"og:image\"]@content",
-          "intro": "[property=\"og:description\"]@content##(^|[。！？]+[”」）】]?)##$1<br>",
-          "kind": "[property=\"og:novel:category\"]@content&&[property=\"og:novel:status\"]@content&&[property=\"og:novel:update_time\"]@content##\\s.*",
-          "lastChapter": "[property=\"og:novel:latest_chapter_name\"]@content",
-          "name": "[property=\"og:novel:book_name\"]@content",
-          "tocUrl": "[property=\"og:novel:read_url\"]@content",
-          "wordCount": "##<p class=\"book-meta\">(.+?字)<##$1###"
-        },
-        "ruleContent": {
-          "content": "#acontent@html",
-          "imageStyle": "FULL",
-          "nextContentUrl": "##url_next:'(\/.+?_\\d+\\.html)##$1###"
-        },
-        "ruleExplore": {
-        },
-        "ruleSearch": {
-          "author": ".book-author@textNodes",
-          "bookList": ".book-li",
-          "bookUrl": "a@href",
-          "coverUrl": "img@data-original",
-          "intro": "p@text",
-          "kind": "em@text##\\s##,",
-          "name": "h4@text",
-          "wordCount": ""
-        },
-        "ruleToc": {
-          "chapterList": "#volumes li a",
-          "chapterName": "text",
-          "chapterUrl": "href"
-        },
-        "searchUrl": "/sa/{{key}}_{{page}}.html",
-        "weight": 0
-      }
-  ]
+    "ruleContent": {
+      "content": "$.data.content\n<js>\na=String(chapter.title).replace(/\\s/g,\"\");\nresult.substring(0,90).includes(a)?result=result.split(a,2)[1]:result;\nresult.toLowerCase()\n</js>",
+      "replaceRegex": "##^[^\\n]{0,19}[\\u4e00-\\u9fa5]\\n|^正在更新中，请稍等.+|^[^\\n]*求月票[^\\n]*\\n|^([^\\n]+\\n){0,5}\\h+第\\w{1,7}章[【 ].+\\n|(?<=\\n)\\h+\\W\\n|(?<=\\n)\\h*(打击盗版，支持正版，).*$|(?<=\\n)\\h*[【\\(（][\\u4e00-\\u9fa5]+[）\\)】]$|(?<=\\w：)\\s+(?=“\\w)|(?<=\\w，[”」]|[，、‘《（【［「『])\\s+|\\s+(?=[\\n，、’：；》）】］」』])"
+    },
+    "ruleExplore": {},
+    "ruleSearch": {
+      "bookList": "$.data[:10]||$.data.BookList[*]",
+      "name": "$.Name",
+      "author": "$.Author",
+      "kind": "$.BookStatus&&$.CName&&$.Score##(\\d+\\.\\d)$##$1分",
+      "wordCount": "$.UpdateTime##\\h[\\d:]{8}",
+      "lastChapter": "$.UpdateTime&&$.LastChapter##\\h[\\d:]{8}\\n##▪",
+      "intro": "$.Desc",
+      "coverUrl": "$.Img\n<js>\"https://imgapixs.pysmei.com/BookFiles/BookImages/\"+String(result.match(/[^\\/]+\\.\\w+$/)[0])</js>",
+      "bookUrl": "$.Id@js:\nvar n=result.match(/(^\\d+)\\d{3,}/);\nn=(n)?n[1]:'0';\nresult=(Number(n)+1)+'/'+result;\nbook.origin+'BookFiles/Html/'+result+'/index.html';"
+    },
+    "ruleToc": {
+      "chapterList": "$.data.list[*].list[?(@.hasContent==1)]",
+      "chapterName": "$.name",
+      "chapterUrl": "{{$.id}}.html"
+    },
+    "searchUrl": "https://souxs.leeyegy.com/search.aspx?key={{key}}&page=1&siteid=app2",
+    "weight": 0
+  },
+  {
+    "bookSourceUrl": "https://w.linovelib.com",
+    "bookSourceType": "0",
+    "bookSourceName": "哔哩轻小说",
+    "bookSourceGroup": "轻小说",
+    "bookSourceComment": "",
+    "loginUrl": "https://w.linovelib.com/login.php",
+    "loginUi": "",
+    "loginCheckJs": "",
+    "concurrentRate": "",
+    "header": "",
+    "bookUrlPattern": ".+/novel/\\d+.html",
+    "searchUrl": "/sa/{{key}}_{{page}}.html",
+    "exploreUrl": "总榜::/top/allvisit/{{page}}.html\n月榜::/top/monthvisit/{{page}}.html\n总推::/top/allvote/{{page}}.html\n月推::/top/monthvote/{{page}}.html\n最近::/top/lastupdate/{{page}}.html\n最新::/top/postdate/{{page}}.html\n上架::/top/signtime/{{page}}.html\n收藏::/top/goodnum/{{page}}.html\n字数::/top/words/{{page}}.html\n新书::/top/newhot/{{page}}.html\n电击::/wenku/allvisit_0_1_0_0_0_0_5_{{page}}_0.html\n富士::/wenku/allvisit_0_2_0_0_0_0_5_{{page}}_0.html\n角川::/wenku/allvisit_0_3_0_0_0_0_5_{{page}}_0.html\nＭＦ::/wenku/allvisit_0_4_0_0_0_0_5_{{page}}_0.html\nＦＡ::/wenku/allvisit_0_5_0_0_0_0_5_{{page}}_0.html\nＧＡ::/wenku/allvisit_0_6_0_0_0_0_5_{{page}}_0.html\nＨＪ::/wenku/allvisit_0_7_0_0_0_0_5_{{page}}_0.html\n一迅::/wenku/allvisit_0_8_0_0_0_0_5_{{page}}_0.html\n集英::/wenku/allvisit_0_9_0_0_0_0_5_{{page}}_0.html\n小学::/wenku/allvisit_0_10_0_0_0_0_5_{{page}}_0.html\n讲谈::/wenku/allvisit_0_11_0_0_0_0_5_{{page}}_0.html\n少女::/wenku/allvisit_0_12_0_0_0_0_5_{{page}}_0.html\n其他::/wenku/allvisit_0_13_0_0_0_0_5_{{page}}_0.html\n华文::/wenku/allvisit_0_14_0_0_0_0_5_{{page}}_0.html\n轻改::/wenku/allvisit_0_15_0_0_0_0_5_{{page}}_0.html",
+    "enabled": true,
+    "enabledExplore": true,
+    "weight": 0,
+    "customOrder": 0,
+    "lastUpdateTime": 1633675863759,
+    "ruleSearch": {
+      "bookList": ".book-li",
+      "name": "h4@text",
+      "author": ".book-author@textNodes",
+      "kind": "em@text##\\s##,",
+      "intro": "p@text",
+      "coverUrl": "img@data-original",
+      "bookUrl": "a@href"
+    },
+    "ruleExplore": {},
+    "ruleBookInfo": {
+      "name": "[property=\"og:novel:book_name\"]@content",
+      "author": "[property=\"og:novel:author\"]@content",
+      "kind": "[property=\"og:novel:category\"]@content&&[property=\"og:novel:status\"]@content&&[property=\"og:novel:update_time\"]@content##\\s.*",
+      "wordCount": "##<p class=\"book-meta\">(.+?字)<##$1###",
+      "lastChapter": "[property=\"og:novel:latest_chapter_name\"]@content",
+      "intro": "[property=\"og:description\"]@content##(^|[。！？]+[”」）】]?)##$1<br>",
+      "coverUrl": "[property=\"og:image\"]@content",
+      "tocUrl": "[property=\"og:novel:read_url\"]@content"
+    },
+    "ruleToc": {
+      "chapterList": "#volumes li a",
+      "chapterName": "text",
+      "chapterUrl": "href"
+    },
+    "ruleContent": {
+      "content": "#acontent@html",
+      "nextContentUrl": "##url_next:'(/.+?_\\d+\\.html)##$1###",
+      "imageStyle": "FULL"
+    }
+  }
+]
